@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>New Account</title>
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/newacc.css'%}">
+</head>
+<body>
+	<div class="LogIn">
+		<h1>Create a New Account</h1>
+		<form action="register" method="POST">
+			{% csrf_token %}
+			<div class="input-box">
+				<i class="fa fa-user-o"></i>
+				<input type="text" name="firstname" placeholder="First Name" required>
+			</div>
+			<div class="input-box">
+				<i class="fa fa-user-o"></i>
+				<input type="text" name="lastname" placeholder="Last Name">
+			</div>
+			<div class="input-box">
+				<i class="fa fa-envelope-o"></i>
+				<input type="email" name="email" placeholder="Email-Id" required>
+			</div>
+			<div class="input-box">
+				<i class="fa fa-phone"></i>
+				<input type="text" name="username" placeholder="Mobile Number" required>
+			</div>
+			<div class="input-box">
+				<i class="fa fa-key"></i>
+				<input type="password" name="password1" placeholder="Password" required>
+			</div>
+			<div class="input-box">
+				<i class="fa fa-key"></i>
+				<input type="password" name="password2" placeholder="Re-enter Password" required>
+			</div>
+			<button type="submit" class="Login-but1">Create Account</button>
+		</form>
+		{% for message in messages %}
+		<p style="color: red;">{{message}}</p>
+		{% endfor %}
+		
+		<p>Already have a Account?<a href="login">  Login.</a></p>
+	</div> 
+</body>
+</html>

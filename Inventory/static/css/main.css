@@ -1,0 +1,128 @@
+body{
+    margin: 0px;
+
+}
+    #dashboard{
+        display: flex;
+        flex-direction: row;
+    }
+    .clear{
+        clear: both;
+    }
+    a{
+        text-decoration: none;
+        color: black;
+    }
+
+    div.sidebar{
+        width: 25%;
+        height: 100vh;
+        background-image: linear-gradient(45deg,#7DBBC3,#DAEDBD);
+        text-align: center;
+        /* position: fixed; */
+    }
+
+    div.RightSide{
+        width: 75%;
+        float: left;
+
+    }
+
+    .heading{
+        font-size: 50px;
+        text-align: center;
+    }
+
+    div.user{
+        font-size: 20px;
+    }
+
+    hr{
+        height:2px;
+        border-width:0;
+        background-color:black;
+    }
+
+    ul{
+
+    padding-inline-start: 0px !important;
+        list-style-type: none;
+    }
+
+    .menu_list li{
+        padding: 10px;
+        /* padding: none !important; */
+        font-size: 18px;
+    }
+
+    .menu_list li a{
+        text-decoration: none;
+        color: black;
+    }
+    .menu_list li a:hover{
+        color: white;
+        
+    }
+
+    div.topbar{
+        background-color: white;
+        padding: 20px;
+    }
+
+    div.topbar a{
+        color: black;
+        font-size: 18px;
+        text-decoration: none;
+    }
+
+    a#logOut-but{
+        float: right;
+    }
+    .block{
+        margin-top: 20px;
+        margin-bottom: 10px;
+        font-size: 25px;
+        font-style: inherit;
+        width: 100%;
+        padding: 0px !important;
+        border-bottom:2px solid black;;
+    }
+    .select{
+        text-align: center;
+        font-size: 30px;
+        text-align: center;
+    }
+    .content{
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        /* align-content: center; */
+    }
+    .container_table{
+        height: 500px;
+        overflow-y: scroll;
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+    }
+    .container_table::-webkit-scrollbar {
+        display: none;
+      }
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+    table{
+        width: 100%;
+    }
+    th{
+        position:-webkit-sticky;
+        width: 30px;
+        text-align: center;
+        background-color: rgba(100, 248, 132, 0.267);
+    }
+    td{
+        padding-top: 5px;
+        padding-bottom: 5px;;
+        /* width: 15px; */
+        text-align: center;
+    }

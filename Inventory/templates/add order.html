@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dashboard</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/order.css' %}">
+</head>
+<body>
+	<div id="dashboard">
+		<div class="sidebar">
+			<a href="/dashboard"><p class="heading">Dashborad</p></a>
+			<hr>
+			<div class="user">
+				<i class="fa fa-user-circle fa-4x"></i>
+				{% if user.is_authenticated %}
+				<p id="name">Hello, {{ user.first_name }}</p>
+				{% endif %}
+			</div>
+			<hr>
+			<div class="menus">
+				<ul class="menu_list">
+					<li>
+						<a href="brands">Brands</a>
+					</li>
+					<li>
+						<a href="products">Products</a>
+					</li>
+					<li>
+						<a href="orderdetails">Order Details</a>
+					</li>
+					<li>
+						<a href="#">Add Order</a>
+					</li>
+					<!-- <li>
+						<a href=""><i></i>Users</a>
+					</li> -->
+				</ul>
+			</div>
+		</div><div class="clear"></div>
+		<div class="RightSide">
+			<div class="topbar">
+				<!-- <a href=""><i class="fa fa-bars"></i></a> -->
+				<a href="/logout" id="logOut-but"><i class="fa fa-power-off"> Log Out</i></a>
+			</div>
+			<div class="content">
+				<h1>Add Order</h1>
+				<hr>
+				<form action="addorder" method="POST">
+					<h1>Fill the details</h1>
+					{% csrf_token %}
+					<select style="width: 85%; height: 30px; font-size: 14px; border: 0; outline: 0; border-bottom: 2px solid; margin: 2% auto; background-color: transparent;" name="brandname">
+						<option>select an option</option>
+						{% for brand in brands %}
+						<option value="{{ brand.id }}">{{ brand.brand_name}}</option>
+						{% endfor %}
+					</select><br>
+					<!-- <input type="text" placeholder="Brand Name" name="brandname"><br> -->
+					<select style="width: 85%; height: 30px; font-size: 14px; border: 0; outline: 0; border-bottom: 2px solid; margin: 2% auto; background-color: transparent;" name="productname">
+						<option>select an option</option>
+						{% for product in products %}
+						<option value="{{ product.id }}">{{ product.name}}</option>
+						{% endfor %}
+					</select><br>
+					<!-- <input type="text" placeholder="Product Name" name="productname"><br> -->
+					<input type="number" minlength="0" placeholder="Quantity" name="quantity"><br>
+					<input type="text" placeholder="Total Amount" name="total_amount"><br>
+					<input type="text" placeholder="Address" name="address"><br>
+					<input type="text" placeholder="Pincode" name="pincode"><br>
+					<!-- <input type="email" placeholder="Email ID"><br> -->
+					<button type="submit" class="add_but">Add Order</button>
+				</form>
+				
+			</div>
+		</div>
+	</div>
+</body>
+</html>

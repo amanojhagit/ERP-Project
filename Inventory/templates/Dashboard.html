@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dashboard</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css'%}">
+</head>
+<body>
+	<div id="dashboard">
+		<div class="sidebar">
+			<a href="/dashboard"><p class="heading">Dashborad</p></a>
+			<hr>
+			<div class="user">
+				<i class="fa fa-user-circle fa-4x"></i>
+				{% if user.is_authenticated %}
+				<p id="name">Hello, {{ user.first_name }}</p>
+				{% endif %}
+			</div>
+			<hr>
+			<div class="menus">
+				<ul class="menu_list">
+					<li>
+						<a href="brands"><i></i>Brands</a>
+					</li>
+					<li>
+						<a href="products"><i></i>Products</a>
+					</li>
+					<li>
+						<a href="orderdetails">Order Details</a>
+					</li>
+					<li>
+						<a href="addorder">Add Order</a>
+					</li>
+					<!-- <li>
+						<a href=""><i></i>Users</a>
+					</li> -->
+				</ul>
+			</div>
+		</div><div class="clear"></div>
+		<div class="RightSide">
+			<div class="topbar">
+				<!-- <a href=""><i class="fa fa-bars"></i></a> -->
+				<a href="/logout" id="logOut-but"><i class="fa fa-power-off"> Log Out</i></a>
+			</div>
+			<div class="content">
+			<div class="select">
+				<h3>Select any option form sidebar</h3>
+				{% for message in messages %}
+					<p>{{ message }}</p>
+				{% endfor %}
+
+			</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dashboard</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css'%}">
+</head>
+<body>
+	<div id="dashboard">
+		<div class="sidebar">
+			<a href="/dashboard"><p class="heading">Dashborad</p></a>
+			<hr>
+			<div class="user">
+				<i class="fa fa-user-circle fa-4x"></i>
+				{% if user.is_authenticated %}
+				<p id="name">Hello, {{ user.first_name }}</p>
+				{% endif %}
+			</div>
+			<hr>
+			<div class="menus">
+				<ul class="menu_list">
+					<li>
+						<a href="brands">Brands</a>
+					</li>
+					<li>
+						<a href="#">Products</a>
+					</li>
+					<li>
+						<a href="orderdetails">Order Details</a>
+					</li>
+					<li>
+						<a href="addorder">Add Order</a>
+					</li>
+					<!-- <li>
+						<a href=""><i></i>Users</a>
+					</li> -->
+				</ul>
+			</div>
+		</div><div class="clear"></div>
+		<div class="RightSide">
+			<div class="topbar">
+				<!-- <a href=""><i class="fa fa-bars"></i></a> -->
+				<a href="/logout" id="logOut-but"><i class="fa fa-power-off"> Log Out</i></a>
+			</div>
+			<div class="content">
+                <h1>Products</h1>
+				<h5 style="display: inline;">TotalProducts:</h5><h5 style="display: inline; margin-left: 5px;">{{products.count}}</h5><hr>
+				<div class="container_table">
+				<table>
+					<tr>
+						<th>Id</th><th>Product Name</th><th>Brand Name</th><th>Rate</th><th>Availaible</th><th>Stock</th>
+					</tr>
+					{% for product in products %}
+					<tr>
+						<td>{{ product.id }}</td><td>{{ product.name }}</td><td>{{ product.brand }}</td><td>{{ product.rate }}</td>
+						{% if product.available %}
+							<td>Yes</td>
+							<td>{{ product.stock }}</td>
+						{% else %}
+							<td>No</td>
+							<td>0</td>
+						{% endif %}
+					</tr>
+					{% endfor %}
+					
+					
+				</table>
+			    </div>
+				
+			</div>
+		</div>
+	</div>
+</body>
+</html>
